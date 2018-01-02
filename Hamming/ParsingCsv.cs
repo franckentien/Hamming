@@ -7,13 +7,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Hamming
 {
+    using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// The parsing csv.
@@ -25,8 +24,19 @@ namespace Hamming
         /// </summary>
         private static readonly string Path = Directory.GetCurrentDirectory();
 
+        /// <summary>
+        /// The _nb line.
+        /// </summary>
         private static int _nbLine;
+
+        /// <summary>
+        /// The _nb value line.
+        /// </summary>
         private static int _nbValueLine;
+
+        /// <summary>
+        /// The _matrice.
+        /// </summary>
         private static string[,] _matrice;
 
         /// <summary>
