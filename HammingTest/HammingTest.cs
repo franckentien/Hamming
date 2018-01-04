@@ -15,7 +15,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
             
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[0,0],0);
         }
@@ -27,7 +27,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[1, 1], 0);
         }
@@ -39,7 +39,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[0,1], 0);
         }
@@ -51,7 +51,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[1, 0], 0);
         }
@@ -63,7 +63,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[0, 0], 0);
         }
@@ -75,7 +75,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[1, 1], 0);
         }
@@ -87,7 +87,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[0, 1], 1);
         }
@@ -99,7 +99,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[0, 1], 1);
         }
@@ -111,7 +111,7 @@ namespace HammingTest
 
             Hamming hamming = new Hamming(matrice);
 
-            hamming.CalculHamming();
+            hamming.CreateHammingTab();
 
             Assert.AreEqual(hamming.HammingTab[1, 0], 0);
         }

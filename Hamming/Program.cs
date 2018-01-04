@@ -34,10 +34,30 @@ namespace Hamming
                                      { 10, 2, 2, 1, 2 }
                                  };
 
-            
+            Print2DArray(matrice);
 
         }
 
+        /// <summary>
+        /// The print 2 d array.
+        /// </summary>
+        /// <typeparam name="T">
+        /// 2DArray
+        /// </typeparam>
+        /// <param name="matrix">
+        /// The matrix.
+        /// </param>
+        public static void Print2DArray<T>(T[,] matrix)
+        {
+            for (var i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (var j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
 
 
     }

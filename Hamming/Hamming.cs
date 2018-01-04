@@ -9,6 +9,7 @@
 
 namespace Hamming
 {
+    using System;
     using System.Diagnostics;
 
     /// <summary>
@@ -38,9 +39,43 @@ namespace Hamming
         /// <summary>
         /// The calcul hamming.
         /// </summary>
-        public void CalculHamming()
+        public void CreateHammingTab()
         {
+            for (int i = 0; i < Matrice.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrice.GetLength(1); j++)
+                {
+                    HammingTab[i, j] = calculHamming(i,j);
+                }
+            }
 
+         
+        }
+
+        public void DisplayHammingTab()
+        {
+            for (int i = 0; i < Matrice.GetLength(0); i++)
+            {
+                for (int j = 0; j < Matrice.GetLength(1); j++)
+                {
+                    Console.Write("[" + HammingTab[i,j] + "]");
+                }
+            }
+        }
+
+        private int calculHamming(int line1, int line2)
+        {
+            var hamming = 0;
+
+            for ( var i = 1; i < Matrice.GetLength(1); i++)
+            {
+                if (Matrice[line1, i] != Matrice[line2, i])
+                {
+                    hamming++;
+                }
+            }
+
+            return hamming;
         } 
 
 
