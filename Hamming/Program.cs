@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hamming
 {
@@ -11,7 +7,6 @@ namespace Hamming
     /// </summary>
     public class Program
     {
-
 
         /// <summary>
         /// The main.
@@ -22,7 +17,7 @@ namespace Hamming
         public static void Main(string[] args)
         {
             int[,] matrice = new int[10, 5] 
-                                 { { 1, 2, 2, 2, 1 }, 
+                                 {   { 1, 1, 2, 2, 1 }, 
                                      { 2, 1, 1, 2, 1 }, 
                                      { 3, 2, 2, 2, 1 }, 
                                      { 4, 1, 2, 1, 1 },
@@ -34,7 +29,19 @@ namespace Hamming
                                      { 10, 2, 2, 1, 2 }
                                  };
 
-            Print2DArray(matrice);
+            Hamming hamming = new Hamming(matrice);
+
+            Console.WriteLine("==== Initial matrice ====\n");
+            Print2DArray(hamming.Matrice);
+
+            //Console.WriteLine("\n==== Initial HammingTab ====\n");
+            //Print2DArray(hamming.HammingTab);
+
+            Console.WriteLine("\n++++ Create Hamming Tab ++++");
+            hamming.CreateHammingTab();
+
+            Console.WriteLine("\n==== New HammingTab ====\n");
+            Print2DArray(hamming.HammingTab);
 
         }
 

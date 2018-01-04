@@ -9,9 +9,6 @@
 
 namespace Hamming
 {
-    using System;
-    using System.Diagnostics;
-
     /// <summary>
     /// The hamming.
     /// </summary>
@@ -33,7 +30,7 @@ namespace Hamming
         public Hamming(int[,] matrice)
         {
             this.Matrice = matrice;
-            this.HammingTab = new int[Matrice.GetLength(0),Matrice.GetLength(1)];
+            this.HammingTab = new int[Matrice.GetLength(0),Matrice.GetLength(0)];
         }
 
         /// <summary>
@@ -43,8 +40,9 @@ namespace Hamming
         {
             for (int i = 0; i < Matrice.GetLength(0); i++)
             {
-                for (int j = 0; j < Matrice.GetLength(1); j++)
+                for (int j = i; j < Matrice.GetLength(0); j++)
                 {
+
                     HammingTab[i, j] = calculHamming(i,j);
                 }
             }
@@ -52,29 +50,17 @@ namespace Hamming
          
         }
 
-        public void DisplayHammingTab()
-        {
-            for (int i = 0; i < Matrice.GetLength(0); i++)
-            {
-                for (int j = 0; j < Matrice.GetLength(1); j++)
-                {
-                    Console.Write("[" + HammingTab[i,j] + "]");
-                }
-            }
-        }
-
         private int calculHamming(int line1, int line2)
         {
             var hamming = 0;
 
-            for ( var i = 1; i < Matrice.GetLength(1); i++)
+            for (var i = 1; i < Matrice.GetLength(1); i++)
             {
                 if (Matrice[line1, i] != Matrice[line2, i])
                 {
                     hamming++;
                 }
             }
-
             return hamming;
         } 
 
