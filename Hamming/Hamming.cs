@@ -18,8 +18,8 @@ namespace Hamming
         /// <summary>
         /// Gets or sets the matrice.
         /// </summary>
-        public int[,] Matrice { get; private set; }
-        public int[,] HammingTab { get; private set; }
+        public int[,] Matrice { get; }
+        public int[,] HammingTab { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Hamming"/> class.
@@ -43,14 +43,13 @@ namespace Hamming
                 for (int j = i; j < Matrice.GetLength(0); j++)
                 {
 
-                    HammingTab[i, j] = calculHamming(i,j);
+                    HammingTab[i, j] = CalculHamming(i,j);
                 }
             }
-
-         
+            
         }
 
-        private int calculHamming(int line1, int line2)
+        public int CalculHamming(int line1, int line2)
         {
             var hamming = 0;
 

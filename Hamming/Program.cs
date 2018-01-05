@@ -16,8 +16,7 @@ namespace Hamming
         /// </param>
         public static void Main(string[] args)
         {
-            int[,] matrice = new int[10, 5] 
-                                 {   { 1, 1, 2, 2, 1 }, 
+            int[,] matrice = {   { 1, 1, 2, 2, 1 }, 
                                      { 2, 1, 1, 2, 1 }, 
                                      { 3, 2, 2, 2, 1 }, 
                                      { 4, 1, 2, 1, 1 },
@@ -32,16 +31,19 @@ namespace Hamming
             Hamming hamming = new Hamming(matrice);
 
             Console.WriteLine("==== Initial matrice ====\n");
-            Print2DArray(hamming.Matrice);
+            Console.WriteLine(Print2DArray(hamming.Matrice));
+            
 
             //Console.WriteLine("\n==== Initial HammingTab ====\n");
-            //Print2DArray(hamming.HammingTab);
+            //Console.WriteLine(Print2DArray(hamming.HammingTab));
 
             Console.WriteLine("\n++++ Create Hamming Tab ++++");
+            
             hamming.CreateHammingTab();
 
             Console.WriteLine("\n==== New HammingTab ====\n");
-            Print2DArray(hamming.HammingTab);
+            Console.WriteLine(Print2DArray(hamming.HammingTab));
+            
 
         }
 
@@ -54,16 +56,21 @@ namespace Hamming
         /// <param name="matrix">
         /// The matrix.
         /// </param>
-        public static void Print2DArray<T>(T[,] matrix)
+        public static String Print2DArray<T>(T[,] matrix)
         {
+            String result="";
             for (var i = 0; i < matrix.GetLength(0); i++)
             {
                 for (var j = 0; j < matrix.GetLength(1); j++)
                 {
-                    Console.Write(matrix[i, j] + "\t");
+                    result += matrix[i, j] + "\t";
                 }
-                Console.WriteLine();
+
+                result += "\n";
             }
+
+            return result;
+
         }
 
 
