@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cluster.cs" />
     <Compile Include="Hamming.cs" />
     <Compile Include="ParsingCsv.cs" />
     <Compile Include="Program.cs" />
