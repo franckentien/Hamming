@@ -9,28 +9,49 @@ namespace HammingTest
     public class ClusterTest
     {
 
+        #region ExtractLine
+
         [TestMethod]
         public void TestExtractLine2LineHamming0()
         {
             int[,] hammingTab = { { 0, 0 }, { 0, 0 } };
 
-            int[] line = Cluster.ExtractLine(hammingTab);
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.ExtractLine();
 
             int[] result = { 0, 1 };
             Assert.AreEqual(string.Join(",", line), string.Join(",", result));
         }
+
+        [TestMethod]
+        public void TestExtractLine2LineHamming1()
+        {
+            int[,] hammingTab = { { 0, 0 }, { 0, 1 } };
+
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.ExtractLine();
+
+            int[] result = { 0, 1 };
+            Assert.AreEqual(string.Join(",", line), string.Join(",", result));
+        }
+
 
         [TestMethod]
         public void TestExtractLine3LineHamming0()
         {
             int[,] hammingTab = { { 0, 0,0 }, { 0, 0, 0 }, { 0, 0, 0} };
 
-            int[] line = Cluster.ExtractLine(hammingTab);
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.ExtractLine();
 
             int[] result = { 0, 1 };
             Assert.AreEqual(string.Join(",", line), string.Join(",", result));
         }
 
+        #endregion ExtractLine
 
 
 
