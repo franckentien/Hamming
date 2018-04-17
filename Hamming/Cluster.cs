@@ -16,18 +16,11 @@ namespace Hamming
 
         //Return 2 line to split into cluster 
         
-        public int[] ExtractLine()
+        public int[] ExtractLines()
         {
-            int[] rst = null;
-            //if the tab have only TODO
-            if (HammingTab.GetLength(0) <= 2)
-            {
-                rst = new[] { 0, 4 };
-            }
-            else
-            {
-                rst = GetHigherHamming()  ;
-            }
+
+            //Return the lines with the higher value 
+            int[] rst = GetHigherHamming()  ;
 
             return rst;
         }
@@ -36,6 +29,7 @@ namespace Hamming
         //in sample example i get the one of the higher number of the tab  
         public int[] GetHigherHamming()
         {
+            //TODO FAUX 
             int[] rst = {0, 1};
 
             return rst;
@@ -47,6 +41,7 @@ namespace Hamming
             int[,] cluster = null;
             if (HammingTab.GetLength(0) == 2)
             {
+                //TODO a verifier 
                 cluster = new int[,] { { HammingTab[0, 0] }, { HammingTab[1, 0] } };
 
             }
