@@ -51,6 +51,19 @@ namespace HammingTest
             Assert.AreEqual(string.Join(",", line), string.Join(",", result));
         }
 
+        [TestMethod]
+        public void TestExtractLine3LineHamming1()
+        {
+            int[,] hammingTab = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.ExtractLine();
+
+            int[] result = { 1, 2 };
+            Assert.AreEqual(string.Join(",", line), string.Join(",", result));
+        }
+
         #endregion ExtractLine
 
 
@@ -60,10 +73,12 @@ namespace HammingTest
         {
             int [,] hammingTab = {{1,0},{2,0}};
 
-            int[,] cluster = Cluster.BuildCluster(hammingTab);
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[,] rstCluster = cluster.BuildCluster();
 
             int[,] result = {{1}, {2}};
-            Assert.AreEqual(Program.Print2DArray(cluster),Program.Print2DArray(result));
+            Assert.AreEqual(Program.Print2DArray(rstCluster),Program.Print2DArray(result));
         }
 
 

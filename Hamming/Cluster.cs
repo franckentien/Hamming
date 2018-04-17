@@ -15,12 +15,14 @@ namespace Hamming
         }
 
         //Return 2 line to split into cluster 
+        
         public int[] ExtractLine()
         {
             int[] rst = null;
+            //if the tab have only TODO
             if (HammingTab.GetLength(0) <= 2)
             {
-                rst = new[] { 0, 1 };
+                rst = new[] { 0, 4 };
             }
             else
             {
@@ -30,7 +32,8 @@ namespace Hamming
             return rst;
         }
 
-        //return the higest hamming to put into cluster  
+        //return the higest hamming to put into cluster 
+        //in sample example i get the one of the higher number of the tab  
         public int[] GetHigherHamming()
         {
             int[] rst = {0, 1};
@@ -38,6 +41,7 @@ namespace Hamming
             return rst;
         }
 
+        //TODO false only in tdd 
         public int [,] BuildCluster ()
         {
             int[,] cluster = null;
