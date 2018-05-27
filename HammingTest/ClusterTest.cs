@@ -27,13 +27,14 @@ namespace HammingTest
         [TestMethod]
         public void TestExtractLine2LineHamming1()
         {
-            int[,] hammingTab = { { 0, 0 }, { 0, 1 } };
+            int[,] hammingTab = {   { 0, 0 }, 
+                                    { 0, 1 } };
 
             Cluster cluster = new Cluster(hammingTab);
 
             int[] line = cluster.ExtractLines();
 
-            int[] result = { 0, 1 };
+            int[] result = { 1, 1 };
             Assert.AreEqual(string.Join(",", line), string.Join(",", result));
         }
 
@@ -41,20 +42,24 @@ namespace HammingTest
         [TestMethod]
         public void TestExtractLine3LineHamming0()
         {
-            int[,] hammingTab = { { 0, 0,0 }, { 0, 0, 0 }, { 0, 0, 0} };
+            int[,] hammingTab = { { 0, 0, 0 }, 
+                                    { 0, 0, 0 }, 
+                                    { 0, 0, 0} };
 
             Cluster cluster = new Cluster(hammingTab);
 
             int[] line = cluster.ExtractLines();
 
-            int[] result = { 0, 1 };
+            int[] result = {0, 1};
             Assert.AreEqual(string.Join(",", line), string.Join(",", result));
         }
 
         [TestMethod]
         public void TestExtractLine3LineHamming1Default()
         {
-            int[,] hammingTab = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+            int[,] hammingTab = { { 0, 0, 0 }, 
+                                { 0, 0, 0 }, 
+                                { 0, 0, 0 } };
 
             Cluster cluster = new Cluster(hammingTab);
 
@@ -102,9 +107,35 @@ namespace HammingTest
         #region GetHigherHamming
 
         [TestMethod]
-        public void TestGetHigherHamming()
+        public void TestGetHigherHamming3LineHamming2Rst1And2()
         {
-            Assert.Fail();
+            int[,] hammingTab = {
+                { 0, 0, 0 },
+                { 0, 0, 2 }, //2 of differerence between the line 1 and the line 2
+                { 0, 0, 0 } };
+
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.GetHigherHamming();
+
+            int[] result = { 1, 2 };
+            Assert.AreEqual(string.Join(",", line), string.Join(",", result));
+
+        }
+
+        [TestMethod]
+        public void TestGetHigher2LineHamming1()
+        {
+            int[,] hammingTab = { { 0, 0 }, 
+                                  { 0, 1 } };
+
+            Cluster cluster = new Cluster(hammingTab);
+
+            int[] line = cluster.GetHigherHamming();
+
+            int[] result = { 1, 1 };
+            Assert.AreEqual(string.Join(",", line), string.Join(",", result));
+
         }
 
         #endregion

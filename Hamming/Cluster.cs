@@ -5,6 +5,23 @@ namespace Hamming
     public class Cluster
     {
 
+        /*
+         *
+         *
+         * for (int i = 0; i < T.length; i++) {
+            if(Haming(T[0],T[i])>=3){
+                Cluster2.add(i+1);
+            }
+            else {
+                Cluster1.add(i+1);
+            }
+
+        }
+
+         */
+
+
+
         public int[,] HammingTab { get; }
         public List<int> AddedLine;
 
@@ -29,8 +46,22 @@ namespace Hamming
         //in sample example i get the one of the higher number of the tab  
         public int[] GetHigherHamming()
         {
-            //TODO FAUX 
-            int[] rst = {0, 1};
+
+            int[] max = new[] {0, 0};
+            int i, j;
+
+            for (i = 0; i < HammingTab.GetLength(0); i++)
+            for (j = 0; j < HammingTab.GetLength(1); j++)
+            {
+                if (HammingTab[i, j] > HammingTab[max[0], max[1]])
+                {
+                    max[0] = i;
+                    max[1] = j;
+                }
+
+            }
+
+            int[] rst = {max[0], max[1]};
 
             return rst;
         }
