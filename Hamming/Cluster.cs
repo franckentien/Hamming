@@ -6,23 +6,6 @@ namespace Hamming
     public class Cluster
     {
 
-        /*
-         *
-         *
-         * for (int i = 0; i < T.length; i++) {
-            if(Haming(T[0],T[i])>=3){
-                Cluster2.add(i+1);
-            }
-            else {
-                Cluster1.add(i+1);
-            }
-
-        }
-
-         */
-
-
-
         public int[,] HammingTab { get; }
         public List<int> AddedLine;
         public List<int> Cluster1;

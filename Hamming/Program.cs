@@ -50,6 +50,15 @@ namespace Hamming
 
             Console.WriteLine(cluster.BuildCluster());
 
+            Console.WriteLine("\n==== Clusters ====\n");
+
+            cluster.Cluster1.Sort();
+            cluster.Cluster2.Sort();
+
+            Console.WriteLine(string.Join(",", cluster.Cluster1.ToArray()));
+            Console.WriteLine(string.Join(",", cluster.Cluster2.ToArray()));
+
+
         }
 
         /// <summary>
