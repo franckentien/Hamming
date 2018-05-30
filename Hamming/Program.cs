@@ -43,7 +43,12 @@ namespace Hamming
 
             Console.WriteLine("\n==== New HammingTab ====\n");
             Console.WriteLine(Print2DArray(hamming.HammingTab));
+
+            Console.WriteLine("\n==== Clusters ====\n");
             
+            Cluster cluster = new Cluster(hamming.HammingTab);
+
+            Console.WriteLine(cluster.BuildCluster());
 
         }
 
@@ -66,8 +71,14 @@ namespace Hamming
                     result += matrix[i, j] + "\t";
                 }
 
+                result = result.Remove(result.Length - 1);
                 result += "\n";
+
             }
+
+            result = result.Remove(result.Length - 1);
+
+
 
             return result;
 

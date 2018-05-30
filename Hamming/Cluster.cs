@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Hamming
 {
@@ -24,11 +25,15 @@ namespace Hamming
 
         public int[,] HammingTab { get; }
         public List<int> AddedLine;
+        public List<int> Cluster1;
+        public List<int> Cluster2;
 
         public Cluster(int[,] hammingTab)
         {
             HammingTab = hammingTab;
             AddedLine = new List<int>();
+            Cluster1 = new List<int>();
+            Cluster2 = new List<int>();
         }
 
         //Return 2 line to split into cluster 
@@ -37,7 +42,21 @@ namespace Hamming
         {
 
             //Return the lines with the higher value 
-            int[] rst = GetHigherHamming()  ;
+            int[] rst = GetHigherHamming();
+
+            if (!Cluster1.Contains(rst[0] + 1) && !Cluster2.Contains(rst[0] +1))
+            {
+                Cluster1.Add(rst[0] + 1);
+
+                AddedLine.Add(rst[0] + 1);
+            }
+
+            if (!Cluster1.Contains(rst[1] + 1) && !Cluster2.Contains(rst[1] + 1))
+            {
+                Cluster2.Add(rst[1] + 1);
+
+                AddedLine.Add(rst[1] + 1);
+            }
 
             return rst;
         }
@@ -47,11 +66,11 @@ namespace Hamming
         public int[] GetHigherHamming()
         {
 
-            int[] max = new[] {0, 0};
-            int i, j;
+            int[] max = new[] {0, 1};
 
-            for (i = 0; i < HammingTab.GetLength(0); i++)
-            for (j = 0; j < HammingTab.GetLength(1); j++)
+
+            for (int i = 0; i < HammingTab.GetLength(0); i++)
+            for (int j = 0; j < HammingTab.GetLength(1); j++)
             {
                 if (HammingTab[i, j] > HammingTab[max[0], max[1]])
                 {
@@ -61,23 +80,28 @@ namespace Hamming
 
             }
 
-            int[] rst = {max[0], max[1]};
-
+            int[] rst = {Math.Min(max[0], max[1]), Math.Max(max[0], max[1]) };
+            HammingTab[max[0], max[1]] = 0;
+            
             return rst;
         }
 
-        //TODO false only in tdd 
-        public int [,] BuildCluster ()
+        public string  BuildCluster ()
         {
             int[,] cluster = null;
-            if (HammingTab.GetLength(0) == 2)
+            while (HammingTab.GetLength(0) > AddedLine.Count)
             {
-                //TODO a verifier 
-                cluster = new int[,] { { HammingTab[0, 0] }, { HammingTab[1, 0] } };
-
+                ExtractLines();
             }
 
-            return cluster;
+
+            string rst = "";
+
+            rst += string.Join(",", Cluster1.ToArray());
+            rst += "\n";
+            rst += string.Join(",", Cluster2.ToArray());
+
+            return rst;
         }
 
 

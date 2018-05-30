@@ -146,14 +146,15 @@ namespace HammingTest
         [TestMethod]
         public void TestBuild2ClusterWith2ValueHamming0()
         {
-            int[,] hammingTab = { { 1, 0 }, { 2, 0 } };
+            int[,] hammingTab = { { 1, 0 }, 
+                                { 2, 0 } };
 
             Cluster cluster = new Cluster(hammingTab);
 
-            int[,] rstCluster = cluster.BuildCluster();
+            string rstCluster = cluster.BuildCluster();
 
             int[,] result = { { 1 }, { 2 } };
-            Assert.AreEqual(Program.Print2DArray(rstCluster), Program.Print2DArray(result));
+            Assert.AreEqual(rstCluster, Program.Print2DArray(result));
         }
 
         #endregion
