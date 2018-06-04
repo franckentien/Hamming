@@ -27,6 +27,7 @@ namespace Hamming
             //Return the lines with the higher value 
             int[] rst = GetHigherHamming();
 
+            //If the element is not in a cluster
             if (!Cluster1.Contains(rst[0] + 1) && !Cluster2.Contains(rst[0] +1))
             {
                 Cluster1.Add(rst[0] + 1);

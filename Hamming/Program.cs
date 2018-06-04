@@ -44,11 +44,10 @@ namespace Hamming
             Console.WriteLine("\n==== New HammingTab ====\n");
             Console.WriteLine(Print2DArray(hamming.HammingTab));
 
-            Console.WriteLine("\n==== Clusters ====\n");
-            
+        
             Cluster cluster = new Cluster(hamming.HammingTab);
 
-            Console.WriteLine(cluster.BuildCluster());
+            cluster.BuildCluster();
 
             Console.WriteLine("\n==== Clusters ====\n");
 
